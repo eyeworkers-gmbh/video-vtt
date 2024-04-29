@@ -69,6 +69,7 @@ call_user_func(function ($_EXTKEY = 'video_vtt', $table = 'sys_file_reference'):
                 'type' => 'input',
                 'size' => 30,
                 'max' => 30,
+                'default' => 'de',
             ],
         ],
         'track_type' => [
@@ -225,13 +226,13 @@ call_user_func(function ($_EXTKEY = 'video_vtt', $table = 'sys_file_reference'):
         ],
     ]);
     //changed order of fields
-    $GLOBALS['TCA'][$table]['palettes']['videoOverlayPalette']['showitem']
-        = 'title,description,
-        --linebreak--,link,
-        --linebreak--,poster,
-        --linebreak--,autoplay,mute,loop,lang,
-        --linebreak--,showinfo,controls,start_time,end_time,
-        --linebreak--,controlslist,picinpic';
+//    $GLOBALS['TCA'][$table]['palettes']['videoOverlayPalette']['showitem']
+//        = 'title,description,
+//        --linebreak--,link,
+//        --linebreak--,poster,
+//        --linebreak--,autoplay,mute,loop,lang,
+//        --linebreak--,showinfo,controls,start_time,end_time,
+//        --linebreak--,controlslist,picinpic';
 
     $GLOBALS['TCA'][$table]['palettes']['basicoverlayPalette']['showitem']
         = 'title,description,
