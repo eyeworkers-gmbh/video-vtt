@@ -13,15 +13,28 @@ namespace TRAW\VideoVtt\Resource\DisplayCondition;
  * The TYPO3 project - inspiring people to share!
  */
 
-/**
- * Class PosterDisplayCondition
- */
-class PosterDisplayCondition extends AbstractDisplayCondition
+use TRAW\VideoVtt\Resource\Rendering\AudioTagRenderer;
+use TRAW\VideoVtt\Resource\Rendering\VideoTagRenderer;
+use TYPO3\CMS\Core\Resource\FileRepository;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+
+class PosterDisplayCondition
 {
     public function displayPoster(array $data): bool
     {
-        $fileUid = $this->getFileUid($data);
-
-        return $this->fieldShouldBeRendered($fileUid);
+        $record = $data['record'];
+        $fileUid = 0;
+        if (isset($record['file'])) {
+            $fileUid = (int)$record['file'][0];
+        }
+        if ($fileUid > 0) {
+            $fileRepository = GeneralUtility::makeInstance(FileRepository::class);
+            $videoTagRenderer = GeneralUtility::makeInstance(VideoTagRenderer::class);
+            $audioTagRenderer = GeneralUtility::makeInstance(AudioTagRenderer::class);
+            $file = $fileRepository->findByUid($fileUid);
+            return in_array($file->getMimeType(), $videoTagRenderer->getPossibleMimeTypes(), true) ||
+                   in_array($file->getMimeType(), $audioTagRenderer->getPossibleMimeTypes(), true);
+        }
+        return false;
     }
 }
