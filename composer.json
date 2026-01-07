@@ -15,11 +15,8 @@
     }
   },
   "require": {
-    "typo3/cms-core": "^12 || ^13",
-    "typo3/cms-filemetadata": "^12 || ^13"
-  },
-  "replace": {
-    "traw/video_vtt": "self.version"
+    "typo3/cms-core": "^13.4 || ^14.0",
+    "typo3/cms-filemetadata": "^13.4 || ^14.0"
   },
   "extra": {
     "typo3/cms": {

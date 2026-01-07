@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <xliff version="1.0">
-    <file source-language="en" datatype="plaintext" original="messages" date="2021-04-26T11:03:17Z"
+    <file source-language="en" datatype="plaintext" original="EXT:video_vtt/Resources/Private/Language/locallang_tca.xlf" date="2021-04-26T11:03:17Z"
           product-name="video_vtt">
         <header/>
         <body>
@@ -55,6 +55,42 @@
             <trans-unit id="sys_file_reference.track_default">
                 <source>Default attribute</source>
             </trans-unit>
+			<trans-unit id="sys_file_reference.controlsList">
+				<source>Controls List</source>
+			</trans-unit>
+			<trans-unit id="sys_file_reference.controlsList.download">
+				<source>Enable Download</source>
+			</trans-unit>
+			<trans-unit id="sys_file_reference.controlsList.playbackrate">
+				<source>Enable Playbackrate</source>
+			</trans-unit>
+			<trans-unit id="sys_file_reference.controlsList.fullscreen">
+				<source>Enable Fullscreen</source>
+			</trans-unit>
+			<trans-unit id="sys_file_reference.controlsList.remoteplayback">
+				<source>Enable Remoteplayback</source>
+			</trans-unit>
+			<trans-unit id="sys_file_reference.picinpic">
+				<source>Picture in picture</source>
+			</trans-unit>
+			<trans-unit id="sys_file_metadata.poster">
+				<source>Poster Image</source>
+			</trans-unit>
+			<trans-unit id="sys_file_reference.poster">
+				<source>Poster Image (Override Poster from Metadata)</source>
+			</trans-unit>
+			<trans-unit id="sys_file_reference.start_time">
+				<source>Start video at</source>
+			</trans-unit>
+			<trans-unit id="sys_file_reference.end_time">
+				<source>End video at</source>
+			</trans-unit>
+			<trans-unit id="sys_file_reference.lang">
+				<source>Video subtitles language</source>
+			</trans-unit>
+			<trans-unit id="sys_file_reference.lang.none">
+				<source>Default (none)</source>
+			</trans-unit>
         </body>
     </file>
 </xliff>

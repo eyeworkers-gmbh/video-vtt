@@ -32,7 +32,7 @@ class PosterDisplayCondition
             $videoTagRenderer = GeneralUtility::makeInstance(VideoTagRenderer::class);
             $audioTagRenderer = GeneralUtility::makeInstance(AudioTagRenderer::class);
             $file = $fileRepository->findByUid($fileUid);
-            return in_array($file->getMimeType(), $videoTagRenderer->getPossibleMimeTypes(), true) || 
+            return in_array($file->getMimeType(), $videoTagRenderer->getPossibleMimeTypes(), true) ||
                    in_array($file->getMimeType(), $audioTagRenderer->getPossibleMimeTypes(), true);
         }
         return false;

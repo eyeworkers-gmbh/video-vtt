@@ -13,12 +13,10 @@ namespace TRAW\VideoVtt\Resource\DisplayCondition;
  * The TYPO3 project - inspiring people to share!
  */
 
-use TRAW\VideoVtt\Resource\Rendering\VideoTagRenderer;
-use TYPO3\CMS\Core\Resource\FileRepository;
-
-use TYPO3\CMS\Core\Utility\GeneralUtility;
-
-class TextTrackDisplayCondition
+/**
+ * Class TextTrackDisplayCondition
+ */
+class TextTrackDisplayCondition extends AbstractDisplayCondition
 {
     public function displayTracksField(array $data): bool
     {
@@ -27,12 +25,13 @@ class TextTrackDisplayCondition
         if (isset($record['file'])) {
             $fileUid = (int)$record['file'][0];
         }
-        if ($fileUid > 0) {
-            $fileRepository = GeneralUtility::makeInstance(FileRepository::class);
-            $videoTagRenderer = GeneralUtility::makeInstance(VideoTagRenderer::class);
-            $file = $fileRepository->findByUid($fileUid);
-            return in_array($file->getMimeType(), $videoTagRenderer->getPossibleMimeTypes(), true);
-        }
-        return false;
+
+        return $this->fieldShouldBeRendered($fileUid);
+    }
+    
+    public function displayCaptionLanguageField(array $data): bool {
+        $fileUid = $this->getFileUid($data);
+
+        return $this->isYoutubeVideo($fileUid);
     }
 }
